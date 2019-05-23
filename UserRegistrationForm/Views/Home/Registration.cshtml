@@ -1,32 +1,71 @@
 ﻿@{
     ViewBag.Registration = "Registration";
 }
+
 <div class="container">
-    <h2>Registration</h2>
+    <h2>Tell Us About Yourself!</h2>
 
-    <form action="Result" method="post">
-        First Name: <input type="text" name="Firstname" required /><br />
-        Last Name: <input type="text" name="Lastname" required /><br>
-        Email: <input type="text" name="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" required /><br>
+    <fieldset>
+        <legend>User Registration:</legend>
+        <form action="Result" method="post">
 
-        <div>
-            <p>Your email must contain the following:</p>
-            <p>An <b>at</b> symbol</p>
-            <p>A <b>period</b></p>
-        </div>
+            Email: <input type="text" name="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" required /><br>
 
-        Password: <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <div>
+                <p>Your email must contain the following:</p>
+                <p>An <b>@('@')</b> symbol</p>
+                <p>A <b>period</b></p>
+            </div>
 
-        <div id="message">
-            <p>Your password must contain the following:</p>
-            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-            <p id="capital" class="invalid">A <b>uppercase</b> letter</p>
-            <p id="number" class="invalid">A <b>number</b></p>
-            <p id="length" class="invalid">Minimum of <b>8 characters</b></p>
-        </div>
+            Password: <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
 
-        <input type="checkbox" id="checkData"> Don't check this box!<br>
+            <div>
+                <p>Your password must contain the following:</p>
+                <p>A <b>lowercase</b> letter</p>
+                <p>A <b>uppercase</b> letter</p>
+                <p>A <b>number</b></p>
+                <p>Minimum of <b>8 characters</b></p>
+            </div>
 
-        <input type="submit" value="Submit"><br>
+            <div>
+                First Name: <input type="text" name="Firstname" required /><br />
+                Last Name: <input type="text" name="Lastname" required /><br>
+                Birthday: <input type="date" name="birthday" required /><br>
+                Phone: <input type="tel" id="phone" name="phone"
+                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                       required>
+                       Example: 616-123-1234<br>
+            </div>
+
+            <div>
+                <p>Favorite color: </p>
+                <input type="radio" name="Color" value="red" checked> Red<br>
+                <input type="radio" name="Color" value="orange"> Orange<br>
+                <input type="radio" name="Color" value="yellow"> Yellow<br>
+                <input type="radio" name="Color" value="green"> Geen<br>
+                <input type="radio" name="Color" value="blue"> Blue<br>
+                <input type="radio" name="Color" value="purple"> Purple<br>
+                <input type="radio" name="Color" value="other"> Other <input type="text" /><br>
+            </div>
+
+            &nbsp;
+            <div>
+                Favorite animal: <select name="Animal">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="fish">Fish</option>
+                    <option value="bird">Bird</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            &nbsp;
+            <div>
+                <input id="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" name="terms"> I accept the <u>Terms and Conditions</u></p><br>
+            </div>
+
+            <input type="submit" value="Submit"><br>
+        </fieldset>
     </form>
+
 </div>

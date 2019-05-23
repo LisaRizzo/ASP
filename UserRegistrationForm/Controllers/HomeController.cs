@@ -35,12 +35,13 @@ namespace UserRegistrationForm.Controllers
 
         public ActionResult Result(User inputUser)
         {
-            ViewBag.Firstname = inputUser.Firstname;
-            ViewBag.Lastname = inputUser.Lastname;
-            ViewBag.Email = inputUser.Email;
-            ViewBag.Password = inputUser.Password;
+            //ViewBag.Firstname = inputUser.Firstname;
+            //ViewBag.Lastname = inputUser.Lastname;
+            //ViewBag.Email = inputUser.Email;
+            //ViewBag.Password = inputUser.Password;
+            //ViewBag.Phone = inputUser.Phone;
 
-            return View();
+            return View(inputUser);
         }
     }
 }
